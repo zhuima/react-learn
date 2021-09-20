@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { useState } from "react";
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  title: string;
+  organization: string;
+}
 
-export const SearchPanel = ({ users, param, setParam }) => {
+interface SearchPanelProps {
+  users: User[];
+  param: {
+    name: string;
+    personId: string;
+  };
+  setParam: (param: SearchPanelProps["param"]) => void;
+  // viod 标示不返回任何值
+}
+
+export const SearchPanel = ({ users, param, setParam }: SearchPanelProps) => {
   return (
     <form>
       <div>
