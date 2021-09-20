@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 // 在一个函数里，改变传入的对象本身是不好的
 export const ifFalsy = (value) => (value === 0 ? false : !value);
 
@@ -11,4 +13,10 @@ export const cleanObject = (object) => {
     }
   });
   return result;
+};
+
+export const useMount = (callback) => {
+  useEffect(() => {
+    callback();
+  }, []);
 };
