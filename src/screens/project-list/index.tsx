@@ -3,6 +3,7 @@ import { cleanObject, useMount } from "../../utils";
 import { List } from "./list";
 import { SearchPanel } from "./search-panel";
 import * as qs from "qs";
+import { UseHttp } from "../../utils/http";
 
 export const ProjectListScreen = () => {
   const [param, setParam] = useState({
@@ -12,22 +13,14 @@ export const ProjectListScreen = () => {
   const [list, setlist] = useState([]);
   const [users, setUsers] = useState([]);
 
+  const client = UseHttp();
+
   useEffect(() => {
-    fetch(`${apiUrl}/projects?${qs.stringify(cleanObject(param))}`).then(
-      async (response) => {
-        if (response.ok) {
-          setlist(await response.json());
-        }
-      }
-    );
+    client("projects", { data: cleanObject(param) }).then(setlist);
   }, [param]);
 
   useMount(() => {
-    fetch(`${apiUrl}/users`).then(async (response) => {
-      if (response.ok) {
-        setUsers(await response.json());
-      }
-    });
+    client("users").then(setUsers);
   });
 
   return (
