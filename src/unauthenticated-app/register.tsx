@@ -1,8 +1,8 @@
 import React, { FormEvent } from "react";
 import { UserAuth } from "../context/auth-context";
 import { Button, Form, Input } from "antd";
+import { LongButton } from ".";
 // const apiUrl = process.env.REACT_APP_API_URL;
-
 export const RegisterScreen = () => {
   // const login = (param: { username: string; password: string }) => {
   //   fetch(`${apiUrl}/login`, {
@@ -49,7 +49,7 @@ export const RegisterScreen = () => {
       </Form.Item>
 
       <Form.Item>
-        <Button type={"primary"}>注册</Button>
+        <LongButton type={"primary"}>注册</LongButton>
       </Form.Item>
     </Form>
   );
