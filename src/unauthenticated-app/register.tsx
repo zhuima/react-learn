@@ -1,9 +1,9 @@
 import React, { FormEvent } from "react";
-import { UserAuth } from "../../context/auth-context";
+import { UserAuth } from "../context/auth-context";
 
 // const apiUrl = process.env.REACT_APP_API_URL;
 
-export const LoginScreen = () => {
+export const RegisterScreen = () => {
   // const login = (param: { username: string; password: string }) => {
   //   fetch(`${apiUrl}/login`, {
   //     method: "POST",
@@ -18,7 +18,7 @@ export const LoginScreen = () => {
   //   });
   // };
 
-  const { login, user } = UserAuth();
+  const { register, user } = UserAuth();
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -26,17 +26,11 @@ export const LoginScreen = () => {
       .value;
     const password = (event.currentTarget.elements[1] as HTMLInputElement)
       .value;
-    login({ username, password });
+    register({ username, password });
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      {user ? (
-        <div>
-          登陆成功, {user.name}
-          token: {user.token}
-        </div>
-      ) : null}
       <div>
         <label htmlFor="username">用户名</label>
         <input type="text" id={"username"}></input>
@@ -46,7 +40,7 @@ export const LoginScreen = () => {
         <input type="password" id={"password"}></input>
       </div>
 
-      <button>登陆</button>
+      <button>注册</button>
     </form>
   );
 };
