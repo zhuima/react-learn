@@ -4,8 +4,6 @@ import { List } from "./list";
 import { SearchPanel } from "./search-panel";
 import * as qs from "qs";
 
-const apiUrl = process.env.REACT_APP_API_URL;
-
 export const ProjectListScreen = () => {
   const [param, setParam] = useState({
     name: "",
