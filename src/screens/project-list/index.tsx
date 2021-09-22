@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { cleanObject, useMount } from "../../utils";
 import { List } from "./list";
 import { SearchPanel } from "./search-panel";
-import * as qs from "qs";
 import { UseHttp } from "../../utils/http";
 import styled from "@emotion/styled";
 
@@ -18,6 +17,8 @@ export const ProjectListScreen = () => {
 
   useEffect(() => {
     client("projects", { data: cleanObject(param) }).then(setlist);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, [param]);
 
   useMount(() => {

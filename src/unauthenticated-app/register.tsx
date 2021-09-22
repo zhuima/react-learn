@@ -1,6 +1,6 @@
-import React, { FormEvent } from "react";
+import React from "react";
 import { UserAuth } from "../context/auth-context";
-import { Button, Form, Input } from "antd";
+import { Form, Input } from "antd";
 import { LongButton } from ".";
 // const apiUrl = process.env.REACT_APP_API_URL;
 export const RegisterScreen = () => {
@@ -18,7 +18,7 @@ export const RegisterScreen = () => {
   //   });
   // };
 
-  const { register, user } = UserAuth();
+  const { register } = UserAuth();
 
   //   const handleSubmit = (values: FormEvent<HTMLFormElement>) => {
   //     event.preventDefault();
